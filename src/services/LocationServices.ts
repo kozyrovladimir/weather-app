@@ -25,7 +25,7 @@ export const locationAPI = createApi({
                 params: {
                     q: locationNane,
                     limit: 5,
-                    appid: process.env.REACT_APP_SECRET_CODE
+                    appid: 'ec0e499f51635cb60d364495d94b69ba'
                 }
             })
         })
