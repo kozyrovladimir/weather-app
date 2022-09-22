@@ -1,6 +1,6 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/dist/query/react";
 
-export interface CurrentWeather {
+export interface CurrentWeatherI {
     coord: {
         lon: number,
         lat: number
@@ -56,7 +56,7 @@ export const weatherAPI = createApi({
     reducerPath: 'weatherAPI',
     baseQuery: fetchBaseQuery({baseUrl: 'https://api.openweathermap.org/data/2.5/'}),
     endpoints: (build) => ({
-        getWeather: build.query<CurrentWeather, Location>({
+        getWeather: build.query<CurrentWeatherI, Location>({
             query: ({lat, lon}) => ({
                 url: `/weather`,
                 params: {

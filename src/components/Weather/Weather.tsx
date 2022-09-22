@@ -75,7 +75,7 @@ const Weather = () => {
     };
 
     return (
-        <View style={styles.container}>
+        <View style={styles.safeArea}>
             <Text>Текущий город: {weatherIsLoading ? '--/--' : currentWeather && currentWeather.name}</Text>
             {currentWeather && <Image
                 style={styles.weatherIcon}
@@ -103,7 +103,7 @@ const Weather = () => {
 };
 
 const styles = StyleSheet.create({
-    container: {
+    safeArea: {
         margin: 10,
         flex: 1,
         backgroundColor: '#fff',
