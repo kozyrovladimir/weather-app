@@ -1,6 +1,6 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/dist/query/react";
 
-export interface Location {
+export interface LocationI {
     name: string,
     local_names: {
         ru: string,
@@ -19,7 +19,7 @@ export const locationAPI = createApi({
     reducerPath: 'locationAPI',
     baseQuery: fetchBaseQuery({baseUrl: 'http://api.openweathermap.org/geo/1.0'}),
     endpoints: (build) => ({
-        getLocation: build.query<Location[], string>({
+        getLocation: build.query<LocationI[], string>({
             query: (locationNane) => ({
                 url: `/direct`,
                 params: {
