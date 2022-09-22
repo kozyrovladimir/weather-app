@@ -3,31 +3,32 @@ import {Image, StyleSheet, Text, View} from "react-native";
 import {CurrentWeatherI} from "../../services/WeatherService";
 
 interface MiddleInfoI {
-    currentWeather: CurrentWeatherI | undefined,
-    weatherIsLoading: boolean,
+    iconUri: string | null,
+    temp: string,
+    weatherDescription: string,
 }
 
-const MiddleInfo: React.FC<MiddleInfoI> = ({currentWeather, weatherIsLoading}) => {
+const MiddleInfo: React.FC<MiddleInfoI> = ({iconUri, temp, weatherDescription}) => {
     return (
         <View style={styles.innerMiddleInfo}>
             <View style={styles.topInnerMiddleInfo}>
                 <View style={styles.innerTopInnerMiddleInfo}>
-                    {currentWeather && <Image
+                    {iconUri && <Image
                         style={styles.weatherIcon}
                         source={{
-                            uri: `http://openweathermap.org/img/wn/${currentWeather.weather[0].icon}@2x.png`,
+                            uri: iconUri
                         }}
                     />}
                 </View>
                 <View style={styles.innerTopInnerMiddleInfo}>
                     <Text style={{color: "#fff", fontSize: 52}}>
-                        {weatherIsLoading ? '--/--' : currentWeather && Math.round(currentWeather.main.temp)}
+                        {temp}
                     </Text>
                 </View>
             </View>
             <View style={styles.bottomInnerMiddleInfo}>
                 <Text style={{color: "#fff", fontSize: 18}}>
-                    {weatherIsLoading ? '--/--' : currentWeather && currentWeather.weather[0].description}
+                    {weatherDescription}
                 </Text>
             </View>
         </View>

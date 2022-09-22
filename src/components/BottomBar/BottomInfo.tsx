@@ -3,11 +3,13 @@ import {StyleSheet, Text, View} from "react-native";
 import {CurrentWeatherI} from "../../services/WeatherService";
 
 interface BottomInfoI {
-    currentWeather: CurrentWeatherI | undefined,
-    weatherIsLoading: boolean,
+    windSpeed: string,
+    pressure: string,
+    humidity: string,
+    chanceOfRain: string,
 }
 
-const BottomInfo: React.FC<BottomInfoI> = ({currentWeather, weatherIsLoading}) => {
+const BottomInfo: React.FC<BottomInfoI> = ({windSpeed, pressure, humidity, chanceOfRain}) => {
     return (
         <View style={styles.bottomBarWrapper}>
             <View style={styles.innerBottomInfo}>
@@ -16,7 +18,7 @@ const BottomInfo: React.FC<BottomInfoI> = ({currentWeather, weatherIsLoading}) =
                         Ветер
                     </Text>
                     <Text style={styles.infoText}>
-                        {weatherIsLoading ? '--/--' : currentWeather && `${Math.round(currentWeather.wind.speed)} м/с`}
+                        {windSpeed}
                     </Text>
                 </View>
                 <View style={styles.innerInnerBottomInfo}>
@@ -24,7 +26,7 @@ const BottomInfo: React.FC<BottomInfoI> = ({currentWeather, weatherIsLoading}) =
                         Давление
                     </Text>
                     <Text style={styles.infoText}>
-                        {weatherIsLoading ? '--/--' : currentWeather && `${currentWeather.main.pressure} мм рт. ст.`}
+                        {pressure}
                     </Text>
                 </View>
             </View>
@@ -34,7 +36,7 @@ const BottomInfo: React.FC<BottomInfoI> = ({currentWeather, weatherIsLoading}) =
                         Влажность
                     </Text>
                     <Text style={styles.infoText}>
-                        {weatherIsLoading ? '--/--' : currentWeather && `${currentWeather.main.humidity} %`}
+                        {humidity}
                     </Text>
                 </View>
                 <View style={styles.innerInnerBottomInfo}>
@@ -42,7 +44,7 @@ const BottomInfo: React.FC<BottomInfoI> = ({currentWeather, weatherIsLoading}) =
                         Вероятность дождя
                     </Text>
                     <Text style={styles.infoText}>
-                        {weatherIsLoading ? '--/--' : currentWeather && `${currentWeather.clouds.all} %`}
+                        {chanceOfRain}
                     </Text>
                 </View>
             </View>
