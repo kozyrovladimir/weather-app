@@ -47,7 +47,7 @@ export interface CurrentWeatherI {
     cod: number
 }
 
-export interface LocationI {
+export interface Location {
     lat: number;
     lon: number;
 };
@@ -56,7 +56,7 @@ export const weatherAPI = createApi({
     reducerPath: 'weatherAPI',
     baseQuery: fetchBaseQuery({baseUrl: 'https://api.openweathermap.org/data/2.5/'}),
     endpoints: (build) => ({
-        getWeather: build.query<CurrentWeatherI, LocationI>({
+        getWeather: build.query<CurrentWeatherI, Location>({
             query: ({lat, lon}) => ({
                 url: `/weather`,
                 params: {
