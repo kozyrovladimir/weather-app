@@ -8,8 +8,6 @@
 
 ![Screenshot](screenshot_3.png "Screenshot")
 
-![Video](video.mp4 "Video")
-
 # Стек технологий:
 * ReactNative + React Hooks
 * UI Kitten
