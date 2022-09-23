@@ -16,7 +16,10 @@ const MainScreen = () => {
             await Location.requestForegroundPermissionsAsync();
             const {coords} = await Location.getCurrentPositionAsync();
             if (coords) {
+                console.log(coords);
                 dispatch(setLocation({lat: coords.latitude, lon: coords.longitude}));
+            } else {
+                throw new Error('Не могу получить доступ локации.');
             }
         } catch (error) {
             Alert.alert(error.name, error.message);
