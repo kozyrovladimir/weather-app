@@ -1,11 +1,32 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, Text} from "react-native";
 import {Autocomplete, AutocompleteItem, Card, Modal} from "@ui-kitten/components";
-import {LocationI} from "../../services/LocationServices";
-import {useChangeCityModal} from "../../hooks/useChangeCityModal";
+import {locationAPI, LocationI} from "../../services/LocationServices";
+import {useAppDispatch} from "../../hooks/redux";
+import {useDebounce} from "../../hooks/useDebounce";
+import {setLocation} from "../../store/reducers/location.slice";
 
 const ChangeCity = () => {
-    const {setValue, value, openModal, toggleModal, Locations, onSelect} = useChangeCityModal();
+    const dispatch = useAppDispatch();
+
+    const [value, setValue] = useState<string>('');
+    const [openModal, setOpenModal] = useState<boolean>(false);
+
+    const debouncedValue = useDebounce(value);
+
+    const {data: Locations} = locationAPI.useGetLocationQuery(debouncedValue);
+
+    const toggleModal = () => {
+        setOpenModal(prevState => !prevState);
+    }
+
+    const onSelect = (index: number) => {
+        if (Locations) {
+            setValue(Locations[index].name);
+            dispatch(setLocation({lat: Locations[index].lat, lon: Locations[index].lon}));
+        }
+        toggleModal();
+    };
 
     const renderOption = (item: LocationI) => (
         <AutocompleteItem
@@ -19,9 +40,9 @@ const ChangeCity = () => {
                 Сменить город
             </Text>
             <Modal
-                style={{width: '90%'}}
+                style={styles.modal}
                 visible={openModal}
-                backdropStyle={{backgroundColor: "#000", opacity: 0.3}}
+                backdropStyle={styles.backdrop}
                 onBackdropPress={toggleModal}>
                 <Card disabled={true}>
                     <Autocomplete
@@ -46,4 +67,11 @@ const styles = StyleSheet.create({
         opacity: 0.6,
         fontSize: 14
     },
+    backdrop: {
+        backgroundColor: "#000",
+        opacity: 0.5
+    },
+    modal: {
+        width: '90%'
+    }
 });

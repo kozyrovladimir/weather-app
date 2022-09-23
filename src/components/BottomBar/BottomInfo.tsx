@@ -1,6 +1,5 @@
 import React from 'react';
 import {StyleSheet, Text, View} from "react-native";
-import {CurrentWeatherI} from "../../services/WeatherService";
 
 interface BottomInfoI {
     windSpeed: string,

@@ -1,6 +1,5 @@
 import React from 'react';
 import {Image, StyleSheet, Text, View} from "react-native";
-import {CurrentWeatherI} from "../../services/WeatherService";
 
 interface MiddleInfoI {
     iconUri: string | null,
@@ -21,14 +20,14 @@ const MiddleInfo: React.FC<MiddleInfoI> = ({iconUri, temp, weatherDescription}) 
                     />}
                 </View>
                 <View style={styles.innerTopInnerMiddleInfo}>
-                    <Text style={{color: "#fff", fontSize: 52}}>
+                    <Text style={styles.tempText}>
                         {temp}
                     </Text>
                 </View>
             </View>
             <View style={styles.bottomInnerMiddleInfo}>
-                <Text style={{color: "#fff", fontSize: 18}}>
-                    {weatherDescription}
+                <Text style={styles.weatherDescriptionText}>
+                    {weatherDescription.toUpperCase()}
                 </Text>
             </View>
         </View>
@@ -61,4 +60,12 @@ const styles = StyleSheet.create({
         width: "100%",
         height: "100%",
     },
+    tempText: {
+        color: "#fff",
+        fontSize: 46
+    },
+    weatherDescriptionText: {
+        color: "#fff",
+        fontSize: 18,
+    }
 });

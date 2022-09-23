@@ -1,12 +1,13 @@
 import React, {useEffect} from 'react';
 import {View, Text, StyleSheet, SafeAreaView, Alert} from "react-native";
-import {useAppDispatch, useAppSelector} from "../hooks/redux";
+import {useAppDispatch} from "../hooks/redux";
 import * as Location from "expo-location";
 import {setLocation} from "../store/reducers/location.slice";
 import BottomInfo from "../components/BottomBar/BottomInfo";
 import MiddleInfo from "../components/MiddleBar/MiddleInfo";
 import ChangeCity from "../components/ChangeCity/ChangeCity";
 import {useWeather} from "../hooks/useWeather";
+import SwitchConversion from "../components/switchConversion/switchConversion";
 
 const MainScreen = () => {
     const dispatch = useAppDispatch();
@@ -16,7 +17,6 @@ const MainScreen = () => {
             await Location.requestForegroundPermissionsAsync();
             const {coords} = await Location.getCurrentPositionAsync();
             if (coords) {
-                console.log(coords);
                 dispatch(setLocation({lat: coords.latitude, lon: coords.longitude}));
             } else {
                 throw new Error('Не могу получить доступ локации.');
@@ -35,9 +35,9 @@ const MainScreen = () => {
         <SafeAreaView style={styles.safeArea}>
             <View style={styles.container}>
                 <View style={styles.topInfo}>
-                    <View style={styles.leftTopInfo}>
-                        <View style={{width: "100%", height: "100%", justifyContent: "space-between"}}>
-                            <Text style={{color: "#fff", fontSize: 30}}>
+                    <View style={styles.leftTopInfoWrapper}>
+                        <View style={styles.leftTopInfo}>
+                            <Text style={styles.cityText}>
                                 {cityName}
                             </Text>
                             <ChangeCity/>
@@ -50,11 +50,9 @@ const MainScreen = () => {
                             justifyContent: "space-between",
                             alignItems: "flex-end"
                         }}>
-                            <View>
-
-                            </View>
+                            <SwitchConversion/>
                             <Text onPress={setMyLocation} style={styles.subText}>
-                                🌎 Mоё местоположение
+                                ➣ Mоё местоположение
                             </Text>
                         </View>
                     </View>
@@ -94,9 +92,6 @@ const styles = StyleSheet.create({
         width: "100%",
         height: "100%",
     },
-    autocompleteItem: {
-        zIndex: 2,
-    },
     topInfo: {
         flexDirection: "row",
         flex: 1,
@@ -106,39 +101,17 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
     },
-    innerMiddleInfo: {
-        aspectRatio: 1,
-        width: "80%",
-    },
-    topInnerMiddleInfo: {
-        flex: 2,
-        flexDirection: "row",
-        alignItems: "flex-end"
-    },
-    innerTopInnerMiddleInfo: {
-        aspectRatio: 1,
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center"
-    },
-    bottomInnerMiddleInfo: {
-        flex: 1,
-        alignItems: "center"
-    },
     bottomInfo: {
         flex: 2,
     },
-    // innerBottomInfo: {
-    //     flex: 1,
-    //     flexDirection: "row",
-    // },
-    // innerInnerBottomInfo: {
-    //     flex: 1,
-    //     justifyContent: "flex-end"
-    // },
-    leftTopInfo: {
+    leftTopInfoWrapper: {
         justifyContent: "space-between",
         flex: 2,
+    },
+    leftTopInfo: {
+        width: "100%",
+        height: "100%",
+        justifyContent: "space-between"
     },
     rightTopInfo: {
         justifyContent: "space-between",
@@ -152,5 +125,9 @@ const styles = StyleSheet.create({
     infoText: {
         color: "#fff",
         fontSize: 18
+    },
+    cityText: {
+        color: "#fff",
+        fontSize: 30
     }
 });
