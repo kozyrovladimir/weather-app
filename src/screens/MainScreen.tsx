@@ -128,14 +128,14 @@ const styles = StyleSheet.create({
     bottomInfo: {
         flex: 2,
     },
-    innerBottomInfo: {
-        flex: 1,
-        flexDirection: "row",
-    },
-    innerInnerBottomInfo: {
-        flex: 1,
-        justifyContent: "flex-end"
-    },
+    // innerBottomInfo: {
+    //     flex: 1,
+    //     flexDirection: "row",
+    // },
+    // innerInnerBottomInfo: {
+    //     flex: 1,
+    //     justifyContent: "flex-end"
+    // },
     leftTopInfo: {
         justifyContent: "space-between",
         flex: 2,
