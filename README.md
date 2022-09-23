@@ -9,9 +9,10 @@
 ![Screenshot](screenshot_3.png "Screenshot")
 
 # Стек технологий:
-* ReactNative + React Hooks
-* UI Kitten
+* ReactNative(Expo CLI) + React Hooks
+* TypeScript
 * Redux Toolkit + RTK Query
+* UI Kitten
 
 # Weather API
 Документация [https://openweathermap.org/api](https://api.rawg.io/docs/)
