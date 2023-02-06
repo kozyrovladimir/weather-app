@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
-import {View, Text, StyleSheet, SafeAreaView, Alert} from "react-native";
+import {View, Text, StyleSheet, Alert} from "react-native";
+import { SafeAreaView } from 'react-native-safe-area-context';
 import {useAppDispatch} from "../hooks/redux";
 import * as Location from "expo-location";
 import {setLocation} from "../store/reducers/location.slice";
