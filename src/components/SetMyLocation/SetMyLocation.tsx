@@ -31,7 +31,7 @@ const SetMyLocation = () => {
     return (
         <TouchableOpacity onPress={setMyLocation}>
             <Text style={styles.text}>
-                {isLoading ? 'Загрузка...' : '➣ Mоё местоположение'}
+                {isLoading ? 'Loading...' : '➣ My location'}
             </Text>
         </TouchableOpacity>
     );

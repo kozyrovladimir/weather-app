@@ -38,7 +38,7 @@ const ChangeCity = () => {
         <>
             <TouchableOpacity onPress={toggleModal}>
                 <Text style={styles.subText}>
-                    Сменить город
+                    Change city
                 </Text>
             </TouchableOpacity>
             <Modal
@@ -48,12 +48,12 @@ const ChangeCity = () => {
                 onBackdropPress={toggleModal}>
                 <Card disabled={true}>
                     <Autocomplete
-                        placeholder='Введите название населенного пункта'
+                        placeholder='Change city'
                         value={value}
                         onSelect={onSelect}
                         onChangeText={setValue}>
                         {Locations ? Locations.map(renderOption) :
-                            <AutocompleteItem title={'Нет результатов'}/>}
+                            <AutocompleteItem title={'No results'}/>}
                     </Autocomplete>
                 </Card>
             </Modal>

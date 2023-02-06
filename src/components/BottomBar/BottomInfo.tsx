@@ -14,7 +14,7 @@ const BottomInfo: React.FC<BottomInfoI> = ({windSpeed, pressure, humidity, chanc
             <View style={styles.innerBottomInfo}>
                 <View style={styles.innerInnerBottomInfo}>
                     <Text style={styles.subText}>
-                        Ветер
+                        Wind Speed
                     </Text>
                     <Text style={styles.infoText}>
                         {windSpeed}
@@ -22,7 +22,7 @@ const BottomInfo: React.FC<BottomInfoI> = ({windSpeed, pressure, humidity, chanc
                 </View>
                 <View style={styles.innerInnerBottomInfo}>
                     <Text style={styles.subText}>
-                        Давление
+                        Pressure
                     </Text>
                     <Text style={styles.infoText}>
                         {pressure}
@@ -32,7 +32,7 @@ const BottomInfo: React.FC<BottomInfoI> = ({windSpeed, pressure, humidity, chanc
             <View style={styles.innerBottomInfo}>
                 <View style={styles.innerInnerBottomInfo}>
                     <Text style={styles.subText}>
-                        Влажность
+                        Humidity
                     </Text>
                     <Text style={styles.infoText}>
                         {humidity}
@@ -40,7 +40,7 @@ const BottomInfo: React.FC<BottomInfoI> = ({windSpeed, pressure, humidity, chanc
                 </View>
                 <View style={styles.innerInnerBottomInfo}>
                     <Text style={styles.subText}>
-                        Вероятность дождя
+                        Chance of Rain
                     </Text>
                     <Text style={styles.infoText}>
                         {chanceOfRain}

@@ -24,8 +24,8 @@ export const useWeather = () => {
     const conventionSymbol = conventionSymbolObject[convention];
     const difference = differenceObject[convention];
 
-    const windSpeed = !currentWeather ? '--/--' : `${Math.round(currentWeather.wind.speed)} м/с`;
-    const pressure = !currentWeather ? '--/--' : `${currentWeather.main.pressure} мм рт. ст.`;
+    const windSpeed = !currentWeather ? '--/--' : `${Math.round(currentWeather.wind.speed)} mps`;
+    const pressure = !currentWeather ? '--/--' : `${currentWeather.main.pressure} mm`;
     const humidity = !currentWeather ? '--/--' : `${currentWeather.main.humidity} %`;
     const chanceOfRain = !currentWeather ? '--/--' : `${currentWeather.clouds.all} %`;
     const iconUri = !currentWeather ? null : `http://openweathermap.org/img/wn/${currentWeather.weather[0].icon}@2x.png`;
