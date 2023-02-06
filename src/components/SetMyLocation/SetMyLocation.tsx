@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Alert, StyleSheet, Text, TouchableOpacity} from "react-native";
 import {useAppDispatch} from "../../hooks/redux";
 import * as Location from "expo-location";
@@ -6,8 +6,10 @@ import {setLocation} from "../../store/reducers/location.slice";
 
 const SetMyLocation = () => {
     const dispatch = useAppDispatch();
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const setMyLocation = async () => {
+        setIsLoading(true);
         try {
             await Location.requestForegroundPermissionsAsync();
             const {coords} = await Location.getCurrentPositionAsync();
@@ -19,6 +21,7 @@ const SetMyLocation = () => {
         } catch (error) {
             Alert.alert(error.name, error.message);
         }
+        setIsLoading(false);
     }
 
     useEffect(() => {
@@ -28,7 +31,7 @@ const SetMyLocation = () => {
     return (
         <TouchableOpacity onPress={setMyLocation}>
             <Text style={styles.text}>
-                ➣ Mоё местоположение
+                {isLoading ? 'Загрузка...' : '➣ Mоё местоположение'}
             </Text>
         </TouchableOpacity>
     );
