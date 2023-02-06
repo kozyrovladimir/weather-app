@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text} from "react-native";
+import {StyleSheet, Text, TouchableOpacity} from "react-native";
 import {Autocomplete, AutocompleteItem, Card, Modal} from "@ui-kitten/components";
 import {locationAPI, LocationI} from "../../services/LocationServices";
 import {useAppDispatch} from "../../hooks/redux";
@@ -36,9 +36,11 @@ const ChangeCity = () => {
 
     return (
         <>
-            <Text onPress={toggleModal} style={styles.subText}>
-                Сменить город
-            </Text>
+            <TouchableOpacity onPress={toggleModal}>
+                <Text style={styles.subText}>
+                    Сменить город
+                </Text>
+            </TouchableOpacity>
             <Modal
                 style={styles.modal}
                 visible={openModal}
