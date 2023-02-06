@@ -74,6 +74,7 @@ const styles = StyleSheet.create({
         opacity: 0.5
     },
     modal: {
+        marginTop: '-50%',
         width: '90%'
     }
 });
