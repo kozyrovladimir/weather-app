@@ -4,7 +4,7 @@ import BottomInfo from "../components/BottomBar/BottomInfo";
 import MiddleInfo from "../components/MiddleBar/MiddleInfo";
 import ChangeCity from "../components/ChangeCity/ChangeCity";
 import {useWeather} from "../hooks/useWeather";
-import SwitchConversion from "../components/switchConversion/switchConversion";
+import SwitchConversion from "../components/SwitchConversion/SwitchConversion";
 import CityName from "../components/CityName/CityName";
 import SetMyLocation from "../components/SetMyLocation/SetMyLocation";
 import ScreenWrapper from "../components/ScreenWrapper/ScreenWrapper";
