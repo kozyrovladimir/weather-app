@@ -64,15 +64,17 @@ const styles = StyleSheet.create({
     },
     innerInnerBottomInfo: {
         flex: 1,
-        justifyContent: "flex-end"
+        justifyContent: "flex-end",
     },
     subText: {
         color: "#fff",
         opacity: 0.6,
-        fontSize: 14
+        fontSize: 14,
+        textAlign: "center",
     },
     infoText: {
         color: "#fff",
-        fontSize: 18
+        fontSize: 18,
+        textAlign: "center",
     }
 });
