@@ -20,7 +20,8 @@
 * Склонировать репозиторий
 * Установить зависимости `npm install`
 * Запустить приложение `npm start`
-* Для запуска на Android/IOS устройстве необходимо установить Expo Go приложение из Google Play Store/Apple App Store
+* Для запуска на Android устройстве необходимо установить Expo Go приложение из Google Play Store ([link](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=ru&gl=US))
+* Для запуска на IOS устройстве необходимо установить Expo Go приложение из App Store ([link](https://apps.apple.com/ru/app/expo-go/id982107779))
 * Запустить приложение на устройстве, отсканировав QR код, который появится в консоли после запуска `npm start`
 * Далее приложение будет доступно в Expo Go приложении для Android/IOS
 
